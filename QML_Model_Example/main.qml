@@ -29,12 +29,13 @@ Window {
 
             anchors.fill: parent
             anchors.margins: 10
+            spacing: 10
 
             model: cpp_application.simpleStringListModel
 
             delegate: Rectangle {
                 height: 25
-                width: simple_string_list_view_1_delegate_text
+                width: parent.width
                 radius: 10
                 border.width: 1
                 border.color: "black"
@@ -42,6 +43,9 @@ Window {
                 Text {
                     id: simple_string_list_view_1_delegate_text
                     text: modelData
+                    verticalAlignment: Text.AlignVCenter
+                    anchors.margins: 5
+                    anchors.fill: parent
                 }
             }
         }
