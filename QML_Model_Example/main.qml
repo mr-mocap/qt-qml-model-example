@@ -1,4 +1,5 @@
 import QtQuick 2.12
+import QtQuick.Controls 2.12
 import QtQuick.Window 2.12
 import MyApp 1.0
 
@@ -33,12 +34,15 @@ Window {
 
             delegate: Rectangle {
                 height: 25
-                //width: 100
+                width: simple_string_list_view_1_delegate_text
                 radius: 10
                 border.width: 1
                 border.color: "black"
 
-                Text { text: modelData }
+                Text {
+                    id: simple_string_list_view_1_delegate_text
+                    text: modelData
+                }
             }
         }
     }
@@ -56,20 +60,29 @@ Window {
 
         ListView {
             id: user_defined_qml_type_list_1
-
             anchors.fill: parent
             anchors.margins: 10
-
+            spacing: 10
             model: cpp_application.listModel1
 
-            delegate: Rectangle {
-                height: 25
-                //width: 100
-                radius: 10
-                border.width: 1
-                border.color: "black"
+            delegate: ItemDelegate {
+                id: control
+                height: control_info.height
+                width: parent.width
+                highlighted: ListView.isCurrentItem
 
-                Text { text: modelData.name }
+                Column {
+                    id: control_info
+                    spacing: 5
+                    padding: 5
+
+                    Text {
+                        text: "<b>Name:</b>  " + modelData.name
+                    }
+                    Text {
+                        text: "<b>Occupation:</b>  " + modelData.occupation
+                    }
+                }
             }
         }
     }

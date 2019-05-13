@@ -10,15 +10,29 @@ ListModel1Type::ListModel1Type(QObject *parent) : QObject(parent)
 {
 }
 
-ListModel1Type::ListModel1Type(const QString &name)
+ListModel1Type::ListModel1Type(const QString &name, const QString &occupation)
     :
     QObject(nullptr),
-    _name(name)
+    _name(name),
+    _occupation(occupation)
 {
 }
-
 
 QString ListModel1Type::name() const
 {
     return _name;
+}
+
+QString ListModel1Type::occupation() const
+{
+    return _occupation;
+}
+
+void ListModel1Type::setOccupation(const QString &new_occupation)
+{
+    if (new_occupation != _occupation)
+    {
+        _occupation = new_occupation;
+        emit occupationChanged();
+    }
 }

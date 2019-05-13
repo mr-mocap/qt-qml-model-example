@@ -42,10 +42,10 @@ QList<QObject *> Application::_generateInitialListModel1() const
 {
     QList<QObject *> retval;
 
-    retval.append(new ListModel1Type("Lee"));
-    retval.append(new ListModel1Type("Vaughn"));
-    retval.append(new ListModel1Type("David H"));
-    retval.append(new ListModel1Type("David K"));
+    retval.append(new ListModel1Type("Lee", "Team Lead"));
+    retval.append(new ListModel1Type("Vaughn", "Wizard"));
+    retval.append(new ListModel1Type("David H", "App Developer"));
+    retval.append(new ListModel1Type("David K", "Audio/Visual"));
 
     return retval;
 }
