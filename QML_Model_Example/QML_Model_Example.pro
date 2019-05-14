@@ -15,7 +15,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         application.cpp \
         listmodel1type.cpp \
-        main.cpp
+        main.cpp \
+        userlistmodel.cpp
 
 RESOURCES += qml.qrc
 
@@ -32,4 +33,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     application.h \
-    listmodel1type.h
+    listmodel1type.h \
+    userlistmodel.h

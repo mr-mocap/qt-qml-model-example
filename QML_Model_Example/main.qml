@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Window 2.12
 import MyApp 1.0
+import MyApp.Models 1.0
 
 Window {
     visible: true
@@ -85,6 +86,46 @@ Window {
                     }
                     Text {
                         text: "<b>Occupation:</b>  " + modelData.occupation
+                    }
+                }
+            }
+        }
+    }
+
+    Rectangle {
+        id: user_defined_qml_type_2_list_rectangle
+        width: 200
+        border.width: 3
+        border.color: "red"
+        radius: 10
+        anchors.margins: 10
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.left: user_defined_qml_type_list_rectangle.right
+
+        ListView {
+            id: user_defined_qml_type_2_list
+            anchors.fill: parent
+            anchors.margins: 10
+            spacing: 10
+            model: cpp_application.userListModel
+
+            delegate: ItemDelegate {
+                id: control_user_model_list_itemDelegate
+                height: control_user_model_list_info.height
+                width: parent.width
+                highlighted: ListView.isCurrentItem
+
+                Column {
+                    id: control_user_model_list_info
+                    spacing: 5
+                    padding: 5
+
+                    Text {
+                        text: "<b>Name:</b>  " + name
+                    }
+                    Text {
+                        text: "<b>Occupation:</b>  " + occupation
                     }
                 }
             }
